@@ -19,6 +19,7 @@ router.post("/logout", auth, async (req, res) => {
 router.post("/", async (req, res, next) => {
   // throw Error("access denied");
   // Validate request
+  console.log("body", req.body);
   const { error } = validateLogin(req.body);
   if (error) return res.status(400).send("Email or Password is wrong !");
   // Check if already existing
@@ -35,7 +36,7 @@ router.post("/", async (req, res, next) => {
 
   //  Return the token
   const token = user.generateAuthToken();
-  res.header("x-auth-token", token).send(token);
+  res.header("x-auth-token", token).send({token});
 });
 
 module.exports = router;

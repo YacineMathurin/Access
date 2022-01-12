@@ -24,11 +24,12 @@ const userSchema = new mongoose.Schema({
     maxlength: 1024,
   },
   isAdmin: Boolean,
+  idClient: Number,
 });
 userSchema.methods.generateAuthToken = function () {
   // We're dealing with classes here, so this works fine !
   return jwt.sign(
-    { _id: this._id, isAdmin: this.isAdmin },
+    { _id: this._id, isAdmin: this.isAdmin, idClient: this.idClient },
     config.get("jwtPrivateKey")
   );
 };

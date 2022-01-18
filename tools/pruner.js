@@ -4,7 +4,7 @@ const { ResetCode } = require("../models/reset");
     setTimeout(async () => {
         await ResetCode.deleteOne({email});
         console.log("Pruned");
-    }, 10000);
+    }, 180000);
 }
 
 module.exports = pruner;

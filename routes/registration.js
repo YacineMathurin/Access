@@ -1,4 +1,5 @@
 const { User, validateSignUp } = require("../models/user");
+const { Autorization, } = require("../models/autorizations");
 const express = require("express");
 const router = express.Router();
 const _ = require("lodash");
@@ -20,11 +21,18 @@ router.post("/", async (req, res) => {
   //     password: req.body.password,
   //   });
   user = new User(_.pick(req.body, ["name", "email", "password"]));
+  autorization = new Autorization(_.pick(req.body, ["name", "email"]));
+
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
   user.idClient = 0;
+
+  autorization.warehouse = [];
+  autorization.robot = [];
   
   await user.save();
+  await autorization.save();
+
   const token = user.generateAuthToken();
   res
     .header("x-auth-token", token)

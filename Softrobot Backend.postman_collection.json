@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f77d3e47-68b7-463d-9168-263671365ec9",
+		"_postman_id": "4a126d2c-2ece-4000-81a0-032421dc2b95",
 		"name": "Softrobot Backend",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -132,6 +132,87 @@
 					"path": [
 						"api",
 						"reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirm reset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"admin@qenvi.com\",\r\n    \"code\":\"3922\",\r\n    \"password\":\"98765\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/reset/confirm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"reset",
+						"confirm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/user/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autorizations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"artem@qenvi.com\",\r\n    \"warehouse\":[{\"Entrepot Sud-Est\": true, \"Entrepot Nord\": false, \"Northern Warehouse\": true}],\r\n    \"robot\":[]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/autorize",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"autorize"
 					]
 				}
 			},

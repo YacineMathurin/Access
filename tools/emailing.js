@@ -1,3 +1,5 @@
+const config = require("config");
+
 function emailing(email, code) {
     var nodemailer = require('nodemailer');
 
@@ -7,14 +9,14 @@ function emailing(email, code) {
         port: 465,
         secure: true,
         auth: {
-            user: 'noreply@qenvi.com',
-            pass: 'noQEN-2022!!'
+            user: config.get("noreplyEmailAdd"),
+            pass: config.get("emailPass")
         }
     });
     var mailOptions = {
         from: 'noreply@qenvi.com', //It will work if i give me@myserver.com but i need no-reply@myserver.com in from option.        
         to: 'yacinemathurin@gmail.com',
-        subject: 'Sending Email using Node.js',
+        subject: 'Qenvi Robotics: your reset code',
         text: 'Have your reset code: '+ code
     };
     transporter.sendMail(mailOptions, function(error, info){

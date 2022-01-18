@@ -1,0 +1,34 @@
+version: "3.4"
+services:
+  mongodb:
+    image : mongo
+    container_name: mongodb
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - softrobot_volume:/data/db
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+
+  softrobot_access:
+    build:
+      context: .
+    image: softrobot_access
+    container_name: softrobot_access
+    environment:
+      - jwtPrivateKey=jwtPrivateKey
+      - emailPass=noQEN-2022!!
+      - noreplyEmailAdd=noreply@qenvi.com
+      # - MONGODB_ADD=127.0.0.1
+      # - DB_NAME=softrobot
+    ports:
+      - "${PORT}:3000"
+    links:
+      - mongodb
+
+volumes:
+  softrobot_volume:
+
+    

@@ -3,17 +3,14 @@ const winston = require("winston");
 const config = require("config");
 
 module.exports = function () {
-  if (!config.get("jwtPrivateKey")) {
-    console.log("FATAL ERROR: jwtPrivateKey not set !");
-    winston.error("FATAL ERROR: jwtPrivateKey not set !");
+  if (!config.get("jwtPrivateKey") || !config.get("emailPass") || !config.get("noreplyEmailAdd")) {
+    console.log("FATAL ERROR: jwtPrivateKey and/or emailPass not set !");
+    winston.error("FATAL ERROR: jwtPrivateKey and/or emailPass not set !");
     process.exit(1);
   }
-  // Returns a promise
-  // mongoose.connect("mongodb://localhost/playground").then(() => {
   mongoose
     .connect(
-      // "mongodb+srv://admin:CloudData1@cluster0-pjomp.mongodb.net/test?retryWrites=true&w=majority"
-      "mongodb://localhost/softrobot"
+      "mongodb://127.0.0.1/softrobot"
     )
     .then(() => {
       console.log("Connected ...");

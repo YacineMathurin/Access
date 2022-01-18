@@ -25,12 +25,13 @@ router.post("/", async (req, res) => {
   resetCode.code = code;
   await resetCode.save();
   emailing(email, code);
-  // pruner(email);
+  pruner(email);
   res.status(200).send({message:"Code de reinitialisation envoyé"});
 });
 
 router.post("/confirm", async (req, res) => {
   // Validate request
+  console.log("req.body", req.body);
   const { code, email, password } = req.body;
   const { error } = validateResetConfirm(req.body);
   if (error) return res.status(400).send(error.details[0].message);
@@ -45,7 +46,7 @@ router.post("/confirm", async (req, res) => {
   await user.save();
 
   const token = user.generateAuthToken();
-  res.header("x-auth-token", token).send(token);
+  res.header("x-auth-token", token).send({token});
 });
 
 module.exports = router;

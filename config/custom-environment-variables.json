@@ -1,5 +1,5 @@
 {
   "jwtPrivateKey": "jwtPrivateKey",
-  "emailPass": "emailPass",
-  "noreplyEmailAdd":"noreplyEmailAdd"
+  "noreplyEmailAdd":"noreplyEmailAdd",
+  "emailPass": "emailPass"
 }

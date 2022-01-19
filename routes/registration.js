@@ -21,14 +21,14 @@ router.post("/", async (req, res) => {
   //     password: req.body.password,
   //   });
   user = new User(_.pick(req.body, ["name", "email", "password"]));
-  autorization = new Autorization(_.pick(req.body, ["name", "email"]));
+  autorization = new Autorization(_.pick(req.body, ["name", "email", "warehouse", "robot"]));
 
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
   user.idClient = 0;
 
-  autorization.warehouse = [];
-  autorization.robot = [];
+  // autorization.warehouse = [];
+  // autorization.robot = [];
   
   await user.save();
   await autorization.save();

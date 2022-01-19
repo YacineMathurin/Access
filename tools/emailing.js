@@ -15,7 +15,7 @@ function emailing(email, code) {
     });
     var mailOptions = {
         from: 'noreply@qenvi.com', //It will work if i give me@myserver.com but i need no-reply@myserver.com in from option.        
-        to: 'yacinemathurin@gmail.com',
+        to: email,
         subject: 'Qenvi Robotics: your reset code',
         text: 'Have your reset code: '+ code
     };

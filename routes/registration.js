@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
   if (user) return res.status(400).send("User already registred !");
   //   Good to register
   user = new User(_.pick(req.body, ["name", "email", "password", "isAdmin"]));
-  autorization = new Autorization(_.pick(req.body, ["email", "warehouse", "robot"]));
+  autorization = new Autorization(_.pick(req.body, ["name", "email", "warehouse", "robot"]));
 
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);

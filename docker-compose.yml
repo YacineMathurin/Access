@@ -21,6 +21,7 @@ services:
       - jwtPrivateKey=jwtPrivateKey
       - noreplyEmailAdd=noreply@qenvi.com
       - emailPass=noQEN-2022!!
+      - mongoDbAddress=mongodb
       # - MONGODB_ADD=127.0.0.1
       # - DB_NAME=softrobot
     ports:

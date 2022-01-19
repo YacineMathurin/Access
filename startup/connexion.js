@@ -10,7 +10,8 @@ module.exports = function () {
   }
   mongoose
     .connect(
-      "mongodb://127.0.0.1/softrobot"
+      `mongodb://${config.get("mongoDbAddress")}:27017/softrobot`,
+      { useNewUrlParser: true }, 
     )
     .then(() => {
       console.log("Connected ...");

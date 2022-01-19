@@ -42,6 +42,7 @@ function validateUser(user) {
     password: Joi.string().required().min(5).max(255),
     warehouse: Joi.array(),
     robot: Joi.array(),
+    isAdmin: Joi.boolean(),
   };
   return Joi.validate(user, schema);
 }

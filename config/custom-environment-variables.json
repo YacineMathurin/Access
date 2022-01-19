@@ -1,4 +1,5 @@
 {
+  "mongoDbAddress":"mongoDbAddress",
   "jwtPrivateKey": "jwtPrivateKey",
   "noreplyEmailAdd":"noreplyEmailAdd",
   "emailPass": "emailPass"

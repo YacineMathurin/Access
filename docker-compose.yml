@@ -19,12 +19,12 @@ services:
     container_name: softrobot_access
     environment:
       - jwtPrivateKey=jwtPrivateKey
-      - emailPass=noQEN-2022!!
       - noreplyEmailAdd=noreply@qenvi.com
+      - emailPass=noQEN-2022!!
       # - MONGODB_ADD=127.0.0.1
       # - DB_NAME=softrobot
     ports:
-      - "${PORT}:3000"
+      - "${PORT}:5000"
     links:
       - mongodb
 

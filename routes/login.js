@@ -19,7 +19,6 @@ router.post("/logout", auth, async (req, res) => {
 router.post("/", async (req, res, next) => {
   // throw Error("access denied");
   // Validate request
-  console.log("body", req.body);
   const { error } = validateLogin(req.body);
   if (error) return res.status(400).send("Email or Password is wrong !");
   // Check if already existing

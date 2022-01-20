@@ -8,6 +8,14 @@ router.get("/all", async (req, res) => {
   let users = await Autorization.find().sort({ "name": 1});
   res.status(200).send({users});
 });
+router.post("/delete", async (req, res) => {
+  const {email} = req.body;
+  console.log("delete", req.body);
+  if (!email) return res.status(400).send({msg:"No email set"});
+  await User.deleteOne({ email });
+  await Autorization.deleteOne({ email });
+  res.status(200).send({msg:"User deleted"});
+});
 router.post("/autorize", async (req, res) => {
   // Should validate later
   const {email, warehouse, robot} = req.body;

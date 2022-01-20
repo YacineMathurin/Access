@@ -22,6 +22,8 @@ services:
       - noreplyEmailAdd=noreply@qenvi.com
       - emailPass=noQEN-2022!!
       - mongoDbAddress=mongodb
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=&&Cant#getit9*-#
       # - MONGODB_ADD=127.0.0.1
       # - DB_NAME=softrobot
     ports:

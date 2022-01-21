@@ -8,6 +8,7 @@ services:
       - PGID=1000
     volumes:
       - softrobot_volume:/data/db
+      - softrobot_config_volume:/etc/
     ports:
       - "27017:27017"
     restart: unless-stopped
@@ -35,5 +36,6 @@ services:
 
 volumes:
   softrobot_volume:
+  softrobot_config_volume:
 
     

@@ -18,5 +18,5 @@ module.exports = function () {
       console.log("Connected ...");
       winston.info("Connected to database ..."); 
     })
-    .catch(err => {throw new Error(err)} );
+    .catch(err => {throw new Error(err)} ); 
 }; 

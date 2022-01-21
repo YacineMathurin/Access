@@ -30,7 +30,8 @@ userSchema.methods.generateAuthToken = function () {
   // We're dealing with classes here, so this works fine !
   return jwt.sign(
     { _id: this._id, isAdmin: this.isAdmin, idClient: this.idClient, firstname: this.name },
-    config.get("jwtPrivateKey")
+    // config.get("jwtPrivateKey")
+    process.env.JWT_PRIVATE_KEY
   );
 };
 const User = mongoose.model("users", userSchema);

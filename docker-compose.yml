@@ -18,12 +18,14 @@ services:
     image: softrobot_access
     container_name: softrobot_access
     environment:
-      - jwtPrivateKey=jwtPrivateKey
-      - noreplyEmailAdd=noreply@qenvi.com
-      - emailPass=noQEN-2022!!
-      - mongoDbAddress=mongodb
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=&&Cant#getit9*-#
+      - JWT_PRIVATE_KEY=jwtPrivateKey
+      - NOREPLY_EMAIL_ADDR=noreply@qenvi.com
+      - EMAIL_PASS=noQEN-2022!!
+      - MONGODB_ADDR=mongodb
+      - USERNAME_CONNEXION_DB=Yacine
+      - PASS_CONNEXION_DB=SQenvi5*
+      # - MONGO_INITDB_ROOT_USERNAME=root
+      # - MONGO_INITDB_ROOT_PASSWORD=&&Cant#getit9*-#
       # - MONGODB_ADD=127.0.0.1
       # - DB_NAME=softrobot
     ports:

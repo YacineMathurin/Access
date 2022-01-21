@@ -9,8 +9,10 @@ function emailing(email, code) {
         port: 465,
         secure: true,
         auth: {
-            user: config.get("noreplyEmailAdd"),
-            pass: config.get("emailPass")
+            user: process.env.NOREPLY_EMAIL_ADDR,
+            // user: config.get("noreplyEmailAdd"),
+            // pass: config.get("emailPass")
+            pass: process.env.EMAIL_PASS
         }
     });
     var mailOptions = {

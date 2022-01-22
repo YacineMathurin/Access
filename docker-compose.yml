@@ -9,6 +9,8 @@ services:
     volumes:
       - softrobot_volume:/data/db
       - softrobot_config_volume:/etc/
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=&SQenvi5*-
     ports:
       - "27017:27017"
     restart: unless-stopped
@@ -25,8 +27,6 @@ services:
       - MONGODB_ADDR=mongodb
       - USERNAME_CONNEXION_DB=Yacine
       - PASS_CONNEXION_DB=SQenvi5*
-      # - MONGO_INITDB_ROOT_USERNAME=root
-      # - MONGO_INITDB_ROOT_PASSWORD=&&Cant#getit9*-#
       # - MONGODB_ADD=127.0.0.1
       # - DB_NAME=softrobot
     ports:

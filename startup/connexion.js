@@ -11,7 +11,7 @@ module.exports = function () {
   }
   mongoose
     .connect(
-      `mongodb://${process.env.USERNAME_CONNEXION_DB}:${process.env.PASS_CONNEXION_DB}@${process.env.MONGODB_ADDR}:60435/softrobot?authSource=admin`,
+      `mongodb://${process.env.USERNAME_CONNEXION_DB}:${process.env.PASS_CONNEXION_DB}@${process.env.MONGODB_ADDR}:27017/softrobot?authSource=admin`,
       { useNewUrlParser: true },  
     )
     .then(() => {

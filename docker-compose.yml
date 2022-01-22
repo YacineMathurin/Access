@@ -10,9 +10,8 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=&SQenvi5*-
     volumes:
       - db:/data/db
-      - ${PWD}/mongod.conf.orig:etc/mongod.conf.orig
     ports:
-      - "60435:60435"
+      - "27017:27017"
     restart: unless-stopped
     command: mongod
 

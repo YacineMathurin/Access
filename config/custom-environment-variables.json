@@ -2,5 +2,6 @@
   "mongoDbAddress":"mongoDbAddress",
   "jwtPrivateKey": "jwtPrivateKey",
   "noreplyEmailAdd":"noreplyEmailAdd",
-  "emailPass": "emailPass"
+  "emailPass": "emailPass",
+  "MONGODB_PASS": "MONGODB_PASS"
 }

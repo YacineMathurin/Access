@@ -4,7 +4,7 @@ const config = require("config");
 require('dotenv').config();
 
 module.exports = function () {
-  const {MONGODB_PASS} = process.env;
+  const MONGODB_PASS = config.get("MONGODB_PASS");
   if (!MONGODB_PASS) {
     console.log("FATAL ERROR: missing .env file at the root of this project !");
     winston.error("FATAL ERROR: missing .env file at the root of this project !");

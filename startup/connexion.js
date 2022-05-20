@@ -4,19 +4,21 @@ const config = require("config");
 require('dotenv').config();
 
 module.exports = function () {
-  if (!process.env.MONGODB_ADDR) {
+  const {MONGODB_PASS} = process.env;
+  if (!MONGODB_PASS) {
     console.log("FATAL ERROR: missing .env file at the root of this project !");
     winston.error("FATAL ERROR: missing .env file at the root of this project !");
     process.exit(1);
   }
+  const connectionString = `mongodb+srv://admin:${MONGODB_PASS}@cluster0.pjomp.mongodb.net/market?retryWrites=true&w=majority`
   mongoose
     .connect(
-      `mongodb://${process.env.USERNAME_CONNEXION_DB}:${process.env.PASS_CONNEXION_DB}@${process.env.MONGODB_ADDR}:27017/softrobot?authSource=admin`,
+      connectionString,
       { useNewUrlParser: true },  
     )
     .then(() => {
       console.log("Connected ...");
-      winston.info("Connected to database ..."); 
+      winston.info("Connected to database ...");  
     })
     .catch(err => {throw new Error(err)} ); 
-}; 
+};  

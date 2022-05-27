@@ -4,12 +4,12 @@ const config = require("config");
 require('dotenv').config();
 
 module.exports = function () {
-  const MONGODB_PASS = config.get("MONGODB_PASS");
+  const MONGODB_PASS = config.get("MONGODB_PASS"); 
   if (!MONGODB_PASS) {
     console.log("FATAL ERROR: missing .env file at the root of this project !");
     winston.error("FATAL ERROR: missing .env file at the root of this project !");
     process.exit(1);
-  }
+  } 
   const connectionString = `mongodb+srv://admin:${MONGODB_PASS}@cluster0.pjomp.mongodb.net/market?retryWrites=true&w=majority`
   mongoose
     .connect(

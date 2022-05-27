@@ -13,9 +13,9 @@ module.exports = function () {
       level: "error",
     })
   );
-  //   winston.exceptions.handle(
-  //     new winston.transports.File({ filename: "exceptions.log" })
-  //   );
+    winston.exceptions.handle(
+      new winston.transports.File({ filename: "exceptions.log" })
+    );
   process.on("uncaughtException", (ex) => {
     console.log("UNCAUGHT EXECPTION", ex);
     winston.error(ex.message, ex);

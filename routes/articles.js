@@ -2,16 +2,14 @@ const express = require("express");
 const { Articles, validateArticle } = require("../models/articles");
 const router = express.Router();
 const _ = require("lodash");
-var ObjectID = require('mongodb').ObjectID;   
-
 
 router.get("/", async (req, res) => {
   const response = await Articles.find();
   res.status(200).send({ data: response });
 });
-router.get("/:id", async (req, res) => {
-  const _id = req.params.id;
-  const response = await Articles.find({ _id });
+router.get("/:userID", async (req, res) => {
+  const userID = req.params.userID;
+  const response = await Articles.find({ userID });
   res.status(200).send({ data: response });
 });
 router.post("/", async (req, res) => {
@@ -19,7 +17,7 @@ router.post("/", async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   const article = new Articles(_.pick(req.body, 
-    ["city", "address", "caption", "people", "hotels", "salaries", "area", "active"]
+    ["city", "address", "caption", "people", "hotels", "salaries", "area", "active", "userID"]
   ));
 
   await article.save();

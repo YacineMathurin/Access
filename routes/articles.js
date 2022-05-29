@@ -16,22 +16,22 @@ router.post("/", async (req, res) => {
   const { error } = validateArticle(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const article = new Articles(_.pick(req.body, 
-    ["city", "address", "caption", "people", "hotels", "salaries", "area", "active", "userID", "displayName"]
+  const article = new Articles(_.pick(req.body,
+    ["city", "caption", "people", "hotels", "salaries", "area", "active", "userID", "displayName"]
   ));
 
   await article.save();
-  res.status(200).send({ msg:"Item Saved" });
+  res.status(200).send({ msg: "Item Saved" });
 });
 router.put("/", async (req, res) => {
-  const { city, address, caption, people, hotels, salaries, area, active, _id} = req.body;
+  const { city, caption, people, hotels, salaries, area, active, _id } = req.body;
   let article = await Articles.findOne({ _id });
   console.log(req.body._id, article);
 
   // For now
   article.active = active;
   await article.save();
-  res.status(200).send({ data: article, msg:"Item Updated" });
+  res.status(200).send({ data: article, msg: "Item Updated" });
 });
 router.delete("/:id", async (req, res) => {
   const _id = req.params.id;

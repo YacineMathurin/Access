@@ -22,12 +22,6 @@ const articleSchema = new mongoose.Schema({
     minlength: 2,
     maxlength: 50,
   },
-  address: {
-    type: String,
-    required: true,
-    minlength: 2,
-    maxlength: 50,
-  },
   caption: {
     type: String,
     required: true,
@@ -69,7 +63,6 @@ function validateArticle(article) {
     userID: Joi.string().required().min(2).max(50),
     displayName: Joi.string().required().min(2).max(50),
     city: Joi.string().required().min(2).max(50),
-    address: Joi.string().required().min(2).max(50),
     caption: Joi.string().required().min(2).max(1024),
     people: Joi.string().required().min(2).max(1024),
     hotels: Joi.string().required().min(1).max(1024),

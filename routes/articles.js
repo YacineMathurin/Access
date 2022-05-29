@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   const article = new Articles(_.pick(req.body, 
-    ["city", "address", "caption", "people", "hotels", "salaries", "area", "active", "userID"]
+    ["city", "address", "caption", "people", "hotels", "salaries", "area", "active", "userID", "displayName"]
   ));
 
   await article.save();
@@ -36,6 +36,10 @@ router.put("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   const _id = req.params.id;
   const response = await Articles.deleteOne({ _id });
+  res.status(200).send({ data: response });
+});
+router.delete("/", async (req, res) => {
+  const response = await Articles.deleteMany();
   res.status(200).send({ data: response });
 });
 
